@@ -6,8 +6,6 @@
 @inject NavigationManager NavigationManager
 
 <div class="main">
-    <h1>Blazing Pizzas</h1>
-
     <ul class="pizza-cards">
         @if (specials != null)
         {
@@ -84,8 +82,8 @@
         </span>
 
         <a href="checkout" class="@(OrderState.Order.Pizzas.Count == 0
-                                                                           ? "btn btn-warning disabled"
-                                                                           : "btn btn-warning")">
+                                                                                                 ? "btn btn-warning disabled"
+                                                                                                 : "btn btn-warning")">
 
             Order >
         </a>

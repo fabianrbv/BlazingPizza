@@ -1,5 +1,8 @@
 using BlazingPizza.Data;
 using BlazingPizza.Services;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
@@ -14,6 +17,14 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
 }
+
+var colombiaCulture = new CultureInfo("es-CO");
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture(colombiaCulture),
+    SupportedCultures = new[] { colombiaCulture },
+    SupportedUICultures = new[] { colombiaCulture }
+});
 
 app.UseStaticFiles();
 app.UseRouting();

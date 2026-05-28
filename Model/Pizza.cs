@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace BlazingPizza
@@ -8,6 +9,8 @@ namespace BlazingPizza
     /// </summary>
     public class Pizza
     {
+        private static readonly CultureInfo ColombiaCulture = new CultureInfo("es-CO");
+
         public const int DefaultSize = 12;
         public const int MinimumSize = 9;
         public const int MaximumSize = 17;
@@ -36,7 +39,7 @@ namespace BlazingPizza
 
         public string GetFormattedTotalPrice()
         {
-            return GetTotalPrice().ToString("0.00");
+            return GetTotalPrice().ToString("C3", ColombiaCulture);
         }
     }
 }
